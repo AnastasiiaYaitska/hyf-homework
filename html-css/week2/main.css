@@ -9,6 +9,10 @@
   --anim: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -191,6 +195,11 @@ body {
   gap: 10px;
 }
 
+.gallery-pictures-img {
+  width: 250px;
+  height: 200px;
+}
+
 .gallery-logotypes-title {
   margin-bottom: 50px;
 }
@@ -204,6 +213,11 @@ body {
 .gallery-logotypes-item {
   flex-basis: calc((100% - 40 * 4 - 1) / 4);
   padding-bottom: 30px;
+}
+
+.gallery-logotypes-logo {
+  width: 120px;
+  height: 110px;
 }
 
 .gallery-pictures-item:nth-child(odd) {
@@ -223,7 +237,7 @@ body {
   color: var(--footer-txt-color);
 }
 
-.container-container {
+.footer-container {
   display: flex;
   justify-content: space-between;
   padding-bottom: 70px;
@@ -233,6 +247,10 @@ body {
   margin-bottom: 20px;
 }
 
+.footer-description {
+  font-weight: 800;
+  margin-bottom: 20px;
+}
 .footer-item:not(:first-child) {
   padding-top: 20px;
   border-top: solid 1px var(--hover-color);
@@ -286,6 +304,7 @@ body {
   .gallery-container {
     display: flex;
     flex-direction: column;
+    gap: 30px;
   }
 
   .gallery-pictures-list {
@@ -300,9 +319,59 @@ body {
     padding-bottom: 30px;
   }
   .footer-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 40px;
+  }
+}
 
-    padding-bottom: 30px;
+@media screen and (max-width: 767px) {
+  .container {
+    max-width: 480px;
+  }
+  .header {
+    position: relative;
+    top: 0;
+  }
+  .header-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .nav-link {
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-web,
+  .gallery-pictures {
+    padding: 0;
+  }
+  .about-practical,
+  .gallery-logotypes {
+    padding: 0;
+  }
+  .gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .gallery-logotypes-list {
+    align-items: center;
+    justify-content: space-around;
+  }
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
   }
 }
