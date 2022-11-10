@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <section class="section">
+        <div class="container header-container">
+          <div class="logo">Logo</div>
+          <div class="nav">Navgation</div>
+        </div>
+      </section>
+    </header>
+    <section class="hero">
+      <div class="container hero-ccontainer">
+        <h1 class="hero-titel">Sign up to yourcustomtailor.com</h1>
+      </div>
+    </section>
+    <section class="application">
+      <div class="container">
+        <h2 class="application-titel">Step 2/4 - how can we reach you?</h2>
+        <form class="form" action="" method="post">
+          <label class="progress" for=""
+            ><span class="label-text">Progress</span>
+            <input class="progress-input" type="range" value="50"
+          /></label>
+          <p class="form-description">
+            We will probably need to stay in touch somehow. Let is know how we
+            can reach you?
+          </p>
+          <div class="data">
+            <ul class="data-list">
+              <li class="data-item">
+                <label class="data-label" for="">
+                  <span class="data-text">Email*</span>
+                  <input class="data-input" type="email" required />
+                </label>
+              </li>
+              <li class="data-item">
+                <label class="data-label" for="">
+                  <span class="data-text">Password*</span>
+                  <input class="data-input" type="password" required />
+                </label>
+              </li>
+              <li class="data-item">
+                <label class="data-label" for="">
+                  <span class="data-text">Re-enter Password*</span>
+                  <input class="data-input" type="password" required />
+                </label>
+              </li>
+            </ul>
+            <label class="data-label" for="">
+              <span class="data-text">Phone</span>
+              <input class="data-input" type="tel" required />
+            </label>
+          </div>
+          <p class="form-description">I want to sign up for the newsletter</p>
+          <ul class="radio-lis">
+            <li class="radio-item">
+              <label>
+                <span>Weekly news</span>
+                <input
+                  type="radio"
+                  name="news"
+                  value="weekly"
+                  required
+                  checked
+                />
+              </label>
+            </li>
+            <li class="radio-item">
+              <label>
+                <span>Monthly news</span>
+                <input type="radio" name="news" value="monthly" required />
+              </label>
+            </li>
+            <li class="radio-item">
+              <label>
+                <span>Don't send me news</span>
+                <input type="radio" name="news" value="denied" required />
+              </label>
+            </li>
+          </ul>
+          <a class="button-link" href="./index3.html">Next step</a>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

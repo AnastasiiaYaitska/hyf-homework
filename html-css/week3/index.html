@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <section class="section">
+        <div class="container header-container">
+          <div class="logo">Logo</div>
+          <div class="nav">Navgation</div>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="container hero-container">
+          <h1 class="hero-titel">Sign up to yourcustomtailor.com</h1>
+          <p class="hero-description">
+            We can't wait to help you improve your life-style and gain the
+            attantion from people around you!
+          </p>
+          <p class="hero-description">
+            Sign up below to save up to 70% on apparel, hand-bags and cosmetics.
+            Our agents are busy picking the best offers that match your
+            preferences and style. Every week we will send you a hand-picked
+            selection - we just need to know a few details about your first...
+          </p>
+        </div>
+      </section>
+      <section class="application">
+        <div class="container">
+          <h2 class="application-titel">Step 1/4 - tell us who you are?</h2>
+          <form class="form" action="" method="post">
+            <label class="progress" for=""
+              ><span class="label-text">Progress</span>
+              <input class="progress-input" type="range" value="25"
+            /></label>
+            <p class="form-description">
+              Nice to meet you. Let’s spend a minute to get to know each other?
+              Please enter the following:
+            </p>
+            <div class="data">
+              <ul class="data-list">
+                <li class="data-item">
+                  <label class="data-label" for="">
+                    <span class="data-text">First name*</span>
+                    <input class="data-input" type="text" required />
+                  </label>
+                </li>
+                <li class="data-item">
+                  <label class="data-label" for="">
+                    <span class="data-text">Country*</span>
+                    <input class="data-input" list="countrys" required />
+                    <datalist id="countrys">
+                      <option>Denmark</option>
+                      <option>Norway</option>
+                      <option>Germany</option>
+                      <option>Sweden</option>
+                    </datalist>
+                  </label>
+                </li>
+                <li class="data-item">
+                  <label class="data-label" for="">
+                    <span class="data-text">Street address*</span>
+                    <input class="data-input" type="text" required />
+                  </label>
+                </li>
+              </ul>
+              <ul class="data-list-second">
+                <li class="data-item">
+                  <label class="data-label" for="">
+                    <span class="data-text">Last name*</span>
+                    <input class="data-input" type="text" required />
+                  </label>
+                </li>
+                <li class="data-item">
+                  <label class="data-label" for="">
+                    <span class="data-text">Post code*</span>
+                    <input
+                      class="data-input"
+                      type="text"
+                      required
+                      pattern="[0-9]{4}"
+                      title="Assume danish address, so allow only 4 letters."
+                      minlength="4"
+                      maxlength="4"
+                    />
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="message">
+              <label class="message-label" for="message">
+                <span class="message-text">Profile description</span>
+                <p class="message-description">
+                  Please provide a short description of yourself to be displayed
+                  on our social community pages.
+                </p>
+              </label>
+              <textarea name="" id="message" cols="30" rows="10"></textarea>
+            </div>
+            <p class="form-description">
+              Use the same address for billing and shipping? Uncheck below to
+              fill out a separate shipping address.
+            </p>
+            <div class="thumb">
+              <label for="">
+                <span>Shipping address</span>
+                <input type="checkbox" />
+              </label>
+              <a class="button-link" href="./index2.html">Next step</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
