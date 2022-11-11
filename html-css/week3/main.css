@@ -32,6 +32,7 @@ img {
   width: 1200px;
   padding-left: 20px;
   padding-right: 20px;
+  margin: 0 auto;
 }
 
 body {
@@ -66,6 +67,8 @@ body {
   flex-direction: column;
   gap: 20px;
   width: 60%;
+  margin-right: auto;
+  margin-left: 0;
 }
 
 .hero-titel {
@@ -164,7 +167,7 @@ input[type="range"] {
 
 .data-input {
   height: 40px;
-  width: 25em;
+  width: 17em;
 }
 
 .data-list-second {
@@ -197,6 +200,8 @@ input[type="range"] {
   padding: 40px 60px;
   background-color: var(--accent-color);
   margin-left: auto;
+  cursor: pointer;
+  border: none;
 }
 
 .radio-list {
@@ -225,4 +230,47 @@ input[type="range"] {
 .cards-item {
   align-items: flex-end;
   justify-content: flex-end;
+}
+
+.payments-data {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 40px;
+}
+
+.payments-card-name {
+  display: flex;
+  align-items: center;
+}
+
+.payments-card,
+.payments-list,
+.card-data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.payments-list {
+  align-items: flex-end;
+}
+
+.label-card-input {
+  width: 17rem;
+  height: 40px;
+}
+
+.card-data-input {
+  height: 40px;
+  width: 5rem;
+}
+
+.card-data-list {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: flex-end;
+  grid-column-gap: 65px;
+  align-items: center;
+  justify-items: end;
 }

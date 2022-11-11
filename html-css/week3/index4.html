@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=
-    , initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
     <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
@@ -28,19 +28,102 @@
     <section class="application">
       <div class="container">
         <h2 class="application-titel">Step 4/4 - Payment</h2>
-         <form class="form" action="" method="post">
-          <label class="progress" for=""
+        <form class="form" action="" method="post">
+          <label class="progress"
             ><span class="label-text">Progress</span>
             <input class="progress-input" type="range" value="97"
           /></label>
-           <p class="form-description">
-           Please fill in your payment data
-          </p>
+          <p class="form-description">Please fill in your payment data</p>
           <div class="payments-data">
-            <div class="">
-                <ul></ul>
+            <div class="payments-card">
+              <ul class="payments-list">
+                <li class="payments-item">
+                  <label class="label-card"
+                    ><span class="label-text">Name on card</span>
+                    <input
+                      class="label-card-input"
+                      type="text"
+                      name="name-card"
+                      required
+                    />
+                  </label>
+                </li>
+                <li class="payments-item">
+                  <label for="label-card"
+                    ><span class="label-text">Card type</span></label
+                  >
+                  <input
+                    class="label-card-input"
+                    list="card-type"
+                    name="card-type"
+                    id="label-card"
+                    required
+                  />
+
+                  <datalist id="card-type">
+                    <option>MasterCard</option>
+                    <option>Visa</option>
+                    <option>Debit MasterCard</option>
+                    <option>DenCard</option>
+                  </datalist>
+                </li>
+                <li class="payments-item">
+                  <label class="label-card"
+                    ><span class="label-text">Credit card number</span>
+                    <input
+                      class="label-card-input"
+                      type="number"
+                      name="name-card"
+                      required
+                    />
+                  </label>
+                </li>
+              </ul>
+              <ul class="card-data-list">
+                <li class="card-data-item">
+                  <label class="label-card-data">
+                    <span class="label-text">Expiry month</span>
+                    <input
+                      class="card-data-input"
+                      type="number"
+                      maxlength="2"
+                      required
+                    />
+                  </label>
+                </li>
+                <li class="card-data-item">
+                  <label class="label-card-data">
+                    <span class="label-text">CCV</span>
+                    <input
+                      class="card-data-input"
+                      type="number"
+                      maxlength="3"
+                      required
+                    />
+                  </label>
+                </li>
+                <li class="card-data-item">
+                  <label class="label-card-data">
+                    <span class="label-text">Expiry year</span>
+                    <input
+                      class="card-data-input"
+                      type="number"
+                      max="4"
+                      required
+                    />
+                  </label>
+                </li>
+              </ul>
+            </div>
+            <div class="payments-card-name">
+              <label class="label-card-data">
+                <span class="label-text">First Name</span>
+                <input class="label-card-input" type="text" required />
+              </label>
             </div>
           </div>
+          <button class="button-link" type="submit">Submit</button>
+        </form>
       </div>
     </section>
   </body>
