@@ -1,1 +1,3 @@
 # Readme
+
+git is installed
