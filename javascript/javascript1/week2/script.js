@@ -75,33 +75,64 @@
 
 // Event application
 
-function getEventWeekday(beingEventDay) {
+// function getEventWeekday(beingEventDay) {
     
 
-const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const currentDate = new Date().toDateString();
+// const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+// const currentDate = new Date().toDateString();
 
 
-const currentWeekDay = currentDate.slice(0, 3);
+// const currentWeekDay = currentDate.slice(0, 3);
 
 
-    for (let index = 0; index < weekDays.length; index++) {
-        const element = weekDays[index];
+//     for (let index = 0; index < weekDays.length; index++) {
+//         const element = weekDays[index];
        
-        if (element === currentWeekDay) {
-            const sum = index + beingEventDay;
+//         if (element === currentWeekDay) {
+//             const sum = index + beingEventDay;
         
-            if (sum >= weekDays.length) {
-                const dayIndex = sum % weekDays.length;
-                return weekDays[dayIndex];
-            } else {
-                return weekDays[sum];
-            }
-        }
+//             if (sum >= weekDays.length) {
+//                 const dayIndex = sum % weekDays.length;
+//                 return weekDays[dayIndex];
+//             } else {
+//                 return weekDays[sum];
+//             }
+//         }
+//     }
+//         }
+
+// console.log(getEventWeekday(2));
+// console.log(getEventWeekday(1));
+
+
+
+
+// Student manager
+
+const class07Students = [];
+
+const queen = "Hendes Majestæt Dronning Margrethe II";
+
+function addStudentToClass(studentName) {
+    if (studentName === queen) {
+        return class07Students.push(queen);
+    } else if (class07Students.length >= 6) {
+        return "Cannot add more students to class 07.";
+    } else if (class07Students.includes(studentName)) {
+        return `Student ${studentName} is already in the class`
+    } else if (studentName === "") {
+        return "Need name."     
+    } else {
+        class07Students.push(studentName);
+        return class07Students;
     }
+}
+
+function getNumberOfStudents(arr) {
+    return arr.length;
+}
 
 
-        }
-
-console.log(getEventWeekday(2));
-console.log(getEventWeekday(1));
+console.log(addStudentToClass('anastasiia'));
+console.log(addStudentToClass('anastasa'));
+console.log(getNumberOfStudents(class07Students))
