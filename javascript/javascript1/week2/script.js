@@ -109,30 +109,95 @@
 
 // Student manager
 
-const class07Students = [];
+// const class07Students = [];
 
-const queen = "Hendes Majestæt Dronning Margrethe II";
+// const queen = "Hendes Majestæt Dronning Margrethe II";
 
-function addStudentToClass(studentName) {
-    if (studentName === queen) {
-        return class07Students.push(queen);
-    } else if (class07Students.length >= 6) {
-        return "Cannot add more students to class 07.";
-    } else if (class07Students.includes(studentName)) {
-        return `Student ${studentName} is already in the class`
-    } else if (studentName === "") {
-        return "Need name."     
+// function addStudentToClass(studentName) {
+//     if (studentName === queen) {
+//         return class07Students.push(queen);
+//     } else if (class07Students.length >= 6) {
+//         return "Cannot add more students to class 07.";
+//     } else if (class07Students.includes(studentName)) {
+//         return `Student ${studentName} is already in the class`
+//     } else if (studentName === "") {
+//         return "Need name."     
+//     } else {
+//         class07Students.push(studentName);
+//         return class07Students;
+//     }
+// }
+
+// function getNumberOfStudents(arr) {
+//     return arr.length;
+// }
+
+
+// console.log(addStudentToClass('anastasiia'));
+// console.log(addStudentToClass('anastasa'));
+// console.log(getNumberOfStudents(class07Students));
+
+
+
+// Candy helper optional
+
+
+
+const boughtCandyPrices = [];
+
+function addCandy(candyType, weight) {
+
+    const candyTypeToLowerCase = candyType.toLowerCase();
+    
+    const candySweet = "sweet";
+    const candyChocolate = "chocolate";
+    const candyToffee = "toffee";
+    const candyChewingGum = "chewing-gum";
+    let sum = 0;
+
+    if (candyTypeToLowerCase === candySweet) {
+        sum = weight * 0.5;
+       
+
+       return boughtCandyPrices.push(sum);
+    } else if (candyTypeToLowerCase === candyChocolate) {
+        sum = weight * 0.7;
+       return console.log(boughtCandyPrices.push(sum));
+    } else if (candyTypeToLowerCase === candyToffee) {
+        sum = weight * 1.1;
+       return console.log(boughtCandyPrices.push(sum));
+    } else if (candyTypeToLowerCase === candyChewingGum) {
+        sum = weight * 0.03;
+       return console.log(boughtCandyPrices.push(sum));
     } else {
-        class07Students.push(studentName);
-        return class07Students;
+        return "Input incorrect";
     }
+
 }
 
-function getNumberOfStudents(arr) {
-    return arr.length;
+console.log(addCandy("SWEEt", 20));
+console.log(addCandy("SWEEt", 30));
+console.log(addCandy("toffee", 20));
+console.log(boughtCandyPrices);
+
+
+const amountToSpend = Math.random() * 100;
+
+function canBuyMoreCandy(arr) {
+    
+
+    let sum = 0;
+    for (let index = 0; index < arr.length; index++) {
+        const element = arr[index];
+        sum += element;
+        
+        if (sum > amountToSpend) {
+            return "Enough candy for you!";
+        } else {
+            return "You can buy more, so please do!";
+        }
+    }
+    
 }
 
-
-console.log(addStudentToClass('anastasiia'));
-console.log(addStudentToClass('anastasa'));
-console.log(getNumberOfStudents(class07Students))
+console.log(canBuyMoreCandy(boughtCandyPrices));
