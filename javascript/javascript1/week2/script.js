@@ -45,29 +45,63 @@
 
 // Weather wear
 
-function recommendedWeatherWear(temperature) {
-    if (temperature <= 30 && temperature >= 20) {
-        return "Go to the beach.";
-    } else if (temperature <= 19 && temperature >= 15) {
-        return " T-shirt and shorts. ";
-    } else if (temperature <= 14 && temperature >= 7) {
-        return " Sweeter and trousers. ";
-    } else if (temperature <= 6 && temperature >= 0) {
-        return " Jacket , sweeter and trousers. ";
-    } else if (temperature <= 0 && temperature >= -15) {
-        return "Wnter- jacket, sweeter, trousers. ";
-    } else if (temperature <= -16 && temperature >= -25) {
-        return " Double- Wnter- jacket, double-sweeter, double-trousers.";
+// function recommendedWeatherWear(temperature) {
+//     if (temperature <= 30 && temperature >= 20) {
+//         return "Go to the beach.";
+//     } else if (temperature <= 19 && temperature >= 15) {
+//         return " T-shirt and shorts. ";
+//     } else if (temperature <= 14 && temperature >= 7) {
+//         return " Sweeter and trousers. ";
+//     } else if (temperature <= 6 && temperature >= 0) {
+//         return " Jacket , sweeter and trousers. ";
+//     } else if (temperature <= 0 && temperature >= -15) {
+//         return "Wnter- jacket, sweeter, trousers. ";
+//     } else if (temperature <= -16 && temperature >= -25) {
+//         return " Double- Wnter- jacket, double-sweeter, double-trousers.";
+//     }
+//     // else if (typeof temperature !== Number) {
+//     //     return " need a number";
+//     // }
+//     else {
+//         return " I can not help you (";
+//     }
+// }
+
+// console.log(recommendedWeatherWear(31)) 
+
+
+
+
+
+// Event application
+
+function getEventWeekday(beingEventDay) {
+    
+
+const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const currentDate = new Date().toDateString();
+
+
+const currentWeekDay = currentDate.slice(0, 3);
+
+
+    for (let index = 0; index < weekDays.length; index++) {
+        const element = weekDays[index];
+       
+        if (element === currentWeekDay) {
+            const sum = index + beingEventDay;
+        
+            if (sum >= weekDays.length) {
+                const dayIndex = sum % weekDays.length;
+                return weekDays[dayIndex];
+            } else {
+                return weekDays[sum];
+            }
+        }
     }
-    // else if (typeof temperature !== Number) {
-    //     return " need a number";
-    // }
-    else {
-        return " I can not help you (";
-    }
-}
-
-console.log(recommendedWeatherWear(31)) 
 
 
+        }
 
+console.log(getEventWeekday(2));
+console.log(getEventWeekday(1));
