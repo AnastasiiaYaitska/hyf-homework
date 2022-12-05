@@ -9,65 +9,64 @@
 // function getFullname(firstname, surname) {
  
 //     return firstname + " " + surname;
-// };
+// }
 
 // console.log(getFullname("Anastasiia", "Yaitska"));
 
-// const fullname1 = "Sascha";
-// const fullname2 = "Nata";
+// const fullname1 = getFullname('Sascha', 'Borodina');
+// const fullname2 = getFullname('Sergii', 'Borodin');
 
-// console.log(getFullname(fullname1, fullname2));
+
 
 
 // 2. second part
 
-// const useFormalName = true;
-// const gender = "female"
 
-// function getFullname(firstname, surname) {
-//     if (firstname === "" || firstname === Number) {
-//         return "Input field filled out incorrectly";
-//     } else if (useFormalName && gender === "female") {
-//         return `Lady ${firstname} ${surname}`;
-//     } else if (useFormalName && gender === "male") {
-//         return `Lord ${firstname} ${surname}`;
-//     } else if (useFormalName !== true) {
-//        return firstname + " " + surname;
-//     } else {
-//         return "Try again."
-// }
-// };
+const isMale = false;
 
-//  console.log(getFullname("Anastasiia", "Yaitska"));
+function getFullname(firstname, surname,useFormalName ) {
+    if (firstname === "" || firstname === Number) {
+        return "Input field filled out incorrectly";
+    } else if (useFormalName && !isMale) {
+        return `Lady ${firstname} ${surname}`;
+    } else if (useFormalName && isMale) {
+        return `Lord ${firstname} ${surname}`;
+    } else { 
+       return firstname + " " + surname;
+    } 
+}
+
+
+ console.log(getFullname("Anastasiia", "Yaitska" ,true));
 
 
 
 
 // Weather wear
 
-// function recommendedWeatherWear(temperature) {
-//     if (temperature <= 30 && temperature >= 20) {
-//         return "Go to the beach.";
-//     } else if (temperature <= 19 && temperature >= 15) {
-//         return " T-shirt and shorts. ";
-//     } else if (temperature <= 14 && temperature >= 7) {
-//         return " Sweeter and trousers. ";
-//     } else if (temperature <= 6 && temperature >= 0) {
-//         return " Jacket , sweeter and trousers. ";
-//     } else if (temperature <= 0 && temperature >= -15) {
-//         return "Wnter- jacket, sweeter, trousers. ";
-//     } else if (temperature <= -16 && temperature >= -25) {
-//         return " Double- Wnter- jacket, double-sweeter, double-trousers.";
-//     }
-//     // else if (typeof temperature !== Number) {
-//     //     return " need a number";
-//     // }
-//     else {
-//         return " I can not help you (";
-//     }
-// }
+function recommendedWeatherWear(temperature) {
+    if (temperature <= 30 && temperature >= 20) {
+        return "Go to the beach.";
+    } else if (temperature <= 19 && temperature >= 15) {
+        return " T-shirt and shorts. ";
+    } else if (temperature <= 14 && temperature >= 7) {
+        return " Sweeter and trousers. ";
+    } else if (temperature <= 6 && temperature >= 0) {
+        return " Jacket , sweeter and trousers. ";
+    } else if (temperature <= 0 && temperature >= -15) {
+        return "Wnter- jacket, sweeter, trousers. ";
+    } else if (temperature <= -16 && temperature >= -25) {
+        return " Double- Wnter- jacket, double-sweeter, double-trousers.";
+    }
+    else if (typeof temperature !== Number) {
+        return " need a number";
+    }
+    else {
+        return " I can not help you (";
+    }
+}
 
-// console.log(recommendedWeatherWear(31)) 
+console.log(recommendedWeatherWear(14)) 
 
 
 
@@ -99,11 +98,34 @@
 //             }
 //         }
 //     }
-//         }
+        // }
 
 // console.log(getEventWeekday(2));
 // console.log(getEventWeekday(1));
 
+
+// This is a good way of thinking! Luckily though, if the sum is smaller than weekDays.length, then sum % weekDays.length will be equal to sum, which is exactly what you want. So you can just remove this if and return weekDays[dayIndex] 😊
+
+// // II metod
+
+// function getEventWeekday(beingEventDay) {
+    
+
+//     const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+//     const currentDate = new Date();
+
+//     const dateIndex = currentDate.getDay()
+//     console.log(dateIndex)
+//     for (let index = 0; index < array.length; index++) {
+//         const element = weekDays[index];
+//         if (index === dateIndex) {
+//             const sum = index + beingEventDay;
+//             if (sum< weekDays.length){}
+//         }
+        // ?????????????
+//     }
+// }
+// getEventWeekday()
 
 
 
@@ -201,3 +223,8 @@ function canBuyMoreCandy(arr) {
 }
 
 console.log(canBuyMoreCandy(boughtCandyPrices));
+
+
+
+// anotheArr[11] = '12'
+
