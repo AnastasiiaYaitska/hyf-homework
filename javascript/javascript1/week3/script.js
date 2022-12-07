@@ -23,3 +23,23 @@ console.log(names); // ['Peter', 'Yana', 'kristina', 'Rasmus', 'Samuel', 'katrin
 
 
 
+// When will we be there??
+
+const travelInformation = {
+  speed: 50,
+  destinationDistance: 432,
+};
+
+function counterTravelTime(object) {
+    const reminder = object.destinationDistance % object.speed;
+    const minutes = Math.round(reminder * 60 / object.speed);
+    const hours = (object.destinationDistance - reminder) / object.speed;
+    return `${hours} hours and ${minutes} minutes `;
+}
+
+const travelTime = counterTravelTime(travelInformation);
+console.log(travelTime); // 8 hours and 38 minutes
+
+
+
+
