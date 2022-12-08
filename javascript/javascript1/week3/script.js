@@ -93,3 +93,55 @@ function logOutSeriesText(array) {
      return `In total that is ${total.toFixed(2)} % of my life`;
 }
 console.log(logOutSeriesText(seriesDurations));
+
+
+
+
+// NOnoN0nOYes (Note taking app)
+// Save a note
+
+const notes = [];
+
+function saveNote(content, id) {
+    content = content,
+    id = id,
+    notes.push({ content, id })
+}
+
+saveNote("Pick up groceries", 1);
+saveNote("Do laundry", 2);
+console.log(notes);
+
+
+function getNote(id) {
+    
+        for (let index = 0; index < notes.length; index++) {
+            const note = notes[index];
+            const valueArr = Object.values(note);
+
+
+          if (valueArr.includes(id)) {
+                return note;
+            } 
+        } 
+             
+            return "error" 
+}
+    
+
+ console.log(getNote(1));
+
+
+function logOutNotesFormatted(arr) {
+
+    const results = arr.forEach(({ content, id }) => 
+  {
+        console.log(`The note with id: ${id}, has the following note text: ${content}`)
+    })
+    
+    return results ;
+}
+
+logOutNotesFormatted(notes)
+
+// I did't come up with an additional function, if you can , halp me 😁
