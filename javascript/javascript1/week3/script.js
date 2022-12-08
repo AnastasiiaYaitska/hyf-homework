@@ -145,3 +145,51 @@ function logOutNotesFormatted(arr) {
 logOutNotesFormatted(notes)
 
 // I did't come up with an additional function, if you can , halp me 😁
+
+
+
+// CactusIO-interactive (Smart phone usage app) optional
+
+const activities = [];
+
+function addActivity(date, activity, duration) {
+    date = date.toString(),
+        activity = activity.toString(),
+        duration = Number(duration),
+
+        activities.push({date, activity, duration})
+}
+addActivity("23/7-18", "Youtube", 30);
+console.log(activities)
+addActivity("23/7-18", "Youtube", 30);
+
+
+
+// Show my status
+
+function showStatus(arr) {
+    let total = 0;
+   for (let index = 0; index < arr.length; index++) {
+       const element = arr[index];
+       total += element["duration"];
+       
+       if (arr === "") {
+           return "error";
+       } else if (total >= 90) {
+           return "You have reached your limit, no more smartphoning for you!";
+       }
+   }
+    
+    return `"You have added ${arr.length} activities. They amount to ${total} min. of usage"`;
+     
+}
+console.log(showStatus(activities))
+
+
+// Can we tolk on the leasson about those tasks?🙈 
+
+// Lets improve the addActivity, so that we dont need to specify the date, but the function automatically figures out what the date is.Check out this link: https://stackoverflow.com/a/34015511
+
+// Improve the showStatus function by only showing the number of actitivies for that specific day.
+
+// Create a function for calculating the activity a user has spent the most time on.
