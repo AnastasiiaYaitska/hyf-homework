@@ -23,18 +23,30 @@ console.log(names); // ['Peter', 'Yana', 'kristina', 'Rasmus', 'Samuel', 'katrin
 
 
 
+
+
 // When will we be there??
 
 const travelInformation = {
-  speed: 50,
-  destinationDistance: 432,
+  speed: 60,
+  destinationDistance: 30,
 };
 
 function counterTravelTime(object) {
+ 
     const reminder = object.destinationDistance % object.speed;
     const minutes = Math.round(reminder * 60 / object.speed);
-    const hours = (object.destinationDistance - reminder) / object.speed;
-    return `${hours} hours and ${minutes} minutes `;
+  const hours = (object.destinationDistance - reminder) / object.speed;
+   if (object.speed === 0) {
+    return "You should start moving";
+   } else if (hours === 0) {
+     return `${minutes} minutes`;
+   } else if (hours === 1) {
+     return `${hours} hour and ${minutes} minutes `;
+   } else {
+     return `${hours} hours and ${minutes} minutes `;
+  }
+    
 }
 
 const travelTime = counterTravelTime(travelInformation);
@@ -73,18 +85,19 @@ const seriesDurations = [
     },
 ];
 
-function logOutSeriesText(array) {
+function logOutSeriesText(array, age) {
     let total = 0;
     array.forEach(({ title, days, hours, minutes }) => {
         
         const fullHours = (days * 24) + hours;
-        const sumOfHoursAndMinutes = (minutes / 60) + fullHours;
-        const convertationToYears = sumOfHoursAndMinutes * 0.0001140794586;
-        const percentageOfLife = (convertationToYears * 100 / 80).toFixed(3);
+      const sumOfHoursAndMinutes = (minutes / 60) + fullHours;
+      const hourToYearCoefficient = 1 / (365 * 24);
+        const convertationToYears = sumOfHoursAndMinutes * hourToYearCoefficient;
+        const percentageOfLife = (convertationToYears * 100 / age).toFixed(3);
        
         total += Number(percentageOfLife);
 
-        console.log(`${title} took ${percentageOfLife} of my life`);
+        console.log(`${title} took ${percentageOfLife} % of my life`);
        
 
        
@@ -92,7 +105,7 @@ function logOutSeriesText(array) {
     })
      return `In total that is ${total.toFixed(2)} % of my life`;
 }
-console.log(logOutSeriesText(seriesDurations));
+console.log(logOutSeriesText(seriesDurations, 80));
 
 
 
@@ -129,7 +142,7 @@ function getNote(id) {
 }
     
 
- console.log(getNote(1));
+ console.log(getNote("Do laundry"));
 
 
 function logOutNotesFormatted(arr) {
@@ -168,14 +181,15 @@ addActivity("23/7-18", "Youtube", 30);
 // Show my status
 
 function showStatus(arr) {
-    let total = 0;
+  let total = 0;
+   if (arr === "") {
+           return "error";
+       } 
    for (let index = 0; index < arr.length; index++) {
        const element = arr[index];
        total += element["duration"];
        
-       if (arr === "") {
-           return "error";
-       } else if (total >= 90) {
+       if (total >= 90) {
            return "You have reached your limit, no more smartphoning for you!";
        }
    }
