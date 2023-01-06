@@ -100,7 +100,42 @@ function findingShortestWord(arr) {
     return arr.reduce((a, b) => a.length <= b.length ? a : b);
 }
 
-console.log(findingShortestWord(danishWords));
-console.log(danishWords)
+// console.log(findingShortestWord(danishWords));
+// console.log(danishWords)
 
 // 1.2. Find and count the Danish letters
+
+const danishChars = ["å", "ø", "æ"];
+let sum = 0;
+let sumÅ = 0;
+let sumØ = 0;
+let sumÆ = 0;
+
+
+function countDanishChars(string) {
+    const stringToLowerCase = string.toLowerCase();
+    for (let index = 0; index < stringToLowerCase.length; index++) {
+    const element = string[index];
+  
+    for (let index = 0; index < danishChars.length; index++) {
+        const element2 = danishChars[index];
+      
+        if (element === element2) {
+            sum += 1;
+            if (element === danishChars[0]) {
+                sumÅ += 1;
+            }
+            if (element === danishChars[1]) {
+                sumØ += 1;
+            }
+            if (element === danishChars[2]) {
+                sumÆ += 1;
+            }
+        }
+
+    }
+    }
+    return {total: sum, æ: sumÆ, ø: sumØ, å: sumÅ};
+
+}
+console.log(countDanishChars("Blå grød med røde bær"));
