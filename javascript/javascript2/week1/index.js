@@ -56,7 +56,7 @@ let inputValue = '';
 
 input.addEventListener("input", onInputPress);
 btnSubmit.addEventListener("click", getRandomSpiritAnimal, { once: true });
-btnReset.addEventListener("click", getNewRandomSpiritAnimal);
+btnReset.addEventListener("click", getRandomSpiritAnimal);
 
 
 function onInputPress(event) {
@@ -76,16 +76,6 @@ function getRandomSpiritAnimal() {
     const { animal, description } = randomAnimal;
     output.textContent = ` ${inputValue} - ${animal}. ${description}`;
     
-};
-
-function getNewRandomSpiritAnimal() {
-     if (!inputValue) {
-        return output.textContent = "Need the name";
-    };
-    const randNum = Math.floor(Math.random() * 10) + 1;
-    const randomAnimal = spiritAnimals[randNum];
-    const { animal, description } = randomAnimal;
-    output.textContent = ` ${inputValue} - ${animal}. ${description}`;
 };
 
 
