@@ -9,8 +9,8 @@ console.log("The doubled numbers are", oddDoublingNumbers);
 // 1.2. Working with movies
 
 // Create an array of movies containing the movies with a short title (you define what short means)
-
-
+const shortNameMovies = movies.filter(({ title }) => title.split(" ").length <= 2);
+console.log(shortNameMovies)
 
 // Create an array of movie titles with long movie titles
 const longMoviesTitlesArray = movies.map(({ title }) => title);
@@ -47,7 +47,15 @@ console.log(countTotalNumbersOfKeywords("Surfer"));
 console.log(countTotalNumbersOfKeywords("Alien"));
 
 // Create an array of movies where a word in the title is duplicated. Fx "Star Wars: The Clone Wars" the word Wars is duplicated. Here are some madeup examples of movies with duplicated words in the title: "The three men and the pistol", "Chase three - The final chase"
-
+function  duplicatedWordsInTitle(array) {
+    const titleWithDuplicated = array.filter((film) => {
+        if (new Set(film.title.toLowerCase().split(' ')).size !== (film.title.toLowerCase().split(' ')).length) {
+            return film;
+        }
+    });
+    return titleWithDuplicated;
+}
+console.log(duplicatedWordsInTitle(movies))
 
 
 
