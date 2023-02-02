@@ -61,7 +61,7 @@ runAfterDelay(5000, () => console.log('This function should be logged after 5 se
 // Check if we have double clicked on the page. A double click is defined by two clicks within 0.5 seconds. If a double click has been detected, log out the text: "double click!"
 const body = document.querySelector('body')
 window.addEventListener('dblclick', () => console.log("double click!"));
-console.log(body)
+
 
 
 // Create a function called jokeCreator that has three parameters: shouldTellFunnyJoke - boolean, logFunnyJoke - function and logBadJoke - function. If you set shouldTellFunnyJoke to true it should call the logFunnyJoke function that should log out a funny joke. And vice versa.
@@ -94,3 +94,52 @@ function logFunnyJoke() {
 
 
 jokeCreator(shouldTellFunnyJoke, logFunnyJoke, logBadJoke )
+
+
+//2 Function as a variable
+
+const functionsArr = [log1, log2, log3];
+
+function log1() {
+    return 'This is first function'
+}
+
+function log2() {
+    return 'This is second function'
+}
+
+function log3() {
+    return 'This is third function'
+}
+
+const f = functionsArr.forEach(item => console.log(item()));
+
+
+// Create a function as a const and try creating a function normally. Call both functions. Read up on this if you are interested
+
+const anonymous = function (str) {
+    return alert(str)
+}
+
+const funcExpression = function foo(str) {
+    return alert(str)
+}
+function declaration(str) {
+    return alert(str)
+}
+anonymous("I am anonymous function");
+funcExpression("I am funcExpression function");
+declaration("I am declaration function");
+
+// Create an object that has a key whose value is a function. Try calling this function.
+
+const animal = {
+
+    setAnimalName(name) {
+        this.animalName= name
+    }
+
+}
+
+animal.setAnimalName("Tiger");
+console.log(animal.animalName);
