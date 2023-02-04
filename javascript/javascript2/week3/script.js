@@ -5,11 +5,11 @@ setTimeout((() => console.log("Called after 2.5 seconds")), 2500);
 
 // Create a function that takes 2 parameters: delay and stringToLog. Calling this function should log out the stringToLog after delay seconds. Call the function you have created with some different arguments.
 
-function delayFunction(delay, stringToLog) {
-    return setTimeout((() => console.log(stringToLog)), delay * 1000);  
+function delayLog(delay, stringToLog) {
+    setTimeout((() => console.log(stringToLog)), delay * 1000);  
 }
 
-delayFunction(5, 'This string logged after 5 seconds');
+delayLog(5, 'This string logged after 5 seconds');
 
 // Create a button in html. When clicking this button, use the function you created in the previous task to log out the text: Called after 5 seconds 5 seconds after the button is clicked.
 
@@ -68,8 +68,8 @@ window.addEventListener('dblclick', () => console.log("double click!"));
 
 const shouldTellFunnyJoke = true;
 
-function jokeCreator(boolean, goodJoke, badJoke) {
-    if (boolean) {
+function jokeCreator(shouldTellFunnyJoke, goodJoke, badJoke) {
+    if (shouldTellFunnyJoke) {
         return goodJoke();
     }
     return badJoke()

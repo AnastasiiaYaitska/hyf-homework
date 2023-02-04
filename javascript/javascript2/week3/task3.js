@@ -22,15 +22,15 @@ document.addEventListener('keyup', onKeyupCounter)
 
 function onClickBtnStart(event) {
     inputValue = refs.input.value;
-    if (inputValue === "") {
-       return refs.timeOver.textContent = 'Set timeout'
-    }
-    const timeoutId = setTimeout( defineWinner,
+    setTimeout( defineWinner,
         inputValue * 1000)
         
         if (inputValue !== "") {
-         return refs.timeOver.textContent = ''
-     }
+            return refs.timeOver.textContent = ''
+        }
+        if (inputValue === "") {
+           return refs.timeOver.textContent = 'Set timeout'
+        }
 }
 
 function defineWinner() {
