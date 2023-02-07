@@ -51,6 +51,7 @@ async function fetchCurrentLocationWeather() {
     getLocation();
     const parsedLocationFromLocalStorage = JSON.parse(localStorage.getItem(POSITION_KAY))
     console.log(parsedLocationFromLocalStorage)
+    
     const response = await fetch(`${BASE_URL}lat=${parsedLocationFromLocalStorage.lat}&lon=${parsedLocationFromLocalStorage.long}&units=metric&appid=${KEY_API}`);
     const weather = await response.json();
     return weather;
@@ -76,12 +77,36 @@ function createdMarkup(data) {
         sys: { sunrise, sunset }
     } = data;
     
+    const convertSunrise = convertMs(sunrise);
+    const convertSunset = convertMs(sunset);
+    console.log(convertSunrise);
+    
     const markup = `<li class="weather-item">${name}</li>
                     <li class="weather-item" ><img src=" http://openweathermap.org/img/wn/${icon}@2x.png"/></li>
                     <li class="weather-item">${description}</li>
                     <li class="weather-item">${temp} ℃</li>
                     <li class="weather-item">${windSpeed} m/sec</li>
-                    <li class="weather-item">${sunrise} ${sunset}</li>`;
+                    <li class="weather-item">Sunrise  ${convertSunrise.hours}:${convertSunrise.minutes}:${convertSunrise.seconds} <br>
+                    Sunset ${convertSunset.hours}:${convertSunset.minutes}:${convertSunset.seconds}</li>`;
   
     refs.weatherCardUl.innerHTML = markup;
+}
+
+function convertMs(ms) {
+  // Number of milliseconds per unit of time
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+
+  // Remaining days
+//   const days = Math.floor(ms / day);
+  // Remaining hours
+  const hours = Math.floor((ms % day) / hour);
+  // Remaining minutes
+  const minutes = Math.floor(((ms % day) % hour) / minute);
+  // Remaining seconds
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+
+  return {  hours, minutes, seconds };
 }
