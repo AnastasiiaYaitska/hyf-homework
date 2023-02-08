@@ -23,6 +23,13 @@ function onSubmitCurrencyConvert(event) {
     const fromCurrency = event.currentTarget.elements.fromCurrency.value;
     const toCurrency = event.currentTarget.elements.toCurrency.value;
     const inputAmount = event.currentTarget.elements.amount.value;
+
+
+    // const { fromCurrency: { value: fromCurrency },
+    //     toCurrency: { value: toCurrency },
+    //     amount: { vale: amount}
+    // } = event.currentTarget.elements;
+
     refs.outputAmount.disabled = false;
 
     fetchCurrency(fromCurrency, toCurrency, inputAmount).then(data => refs.outputAmount.value = data.conversion_result).catch(error => console.log(error.error - type));
