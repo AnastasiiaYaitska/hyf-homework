@@ -19,21 +19,29 @@ const options = {
 }
 
 
-       let observer = new IntersectionObserver(onLoad, options);
-
 function onLoad(entries, observer) {
     console.log(entries)
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-             page += 1;
-             fetchGiftInfinity(searchingWord, page).then(data =>
-             {renderMarkup(data.data),
-             observer.observe(refs.guard)}).catch(error => console.log(error));
+            page += 1;
+            fetchGiftInfinity(searchingWord, page).then(data => {
+                 
+                renderMarkup(data.data)
+            })
+        }    
+    } )  
 }
-    })
-}
+             
+
+
+
 
 // end
+window.addEventListener("load", (event) => {
+    let observer = new IntersectionObserver(onLoad, options);
+   console.log(observer)
+observer.observe(refs.guard)
+}, false);
 
 
 

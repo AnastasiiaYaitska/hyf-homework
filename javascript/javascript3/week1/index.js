@@ -2,7 +2,9 @@
 
 const refs = {
     form: document.querySelector('.form'),
-    weatherCardUl: document.querySelector('.weather-card')
+    weatherCardUl: document.querySelector('.weather-card'),
+    btnWeather: document.querySelector('#weather'),
+    btnLocation: document.querySelector('#location')
 }
 
 const BASE_URL = ' https://api.openweathermap.org/data/2.5/weather?';
@@ -12,25 +14,27 @@ const POSITION_KAY = 'geolocation';
 
 refs.form.addEventListener('submit', getWeather);
 
+// refs.btnWeather.addEventListener('click', )
 
 
 
 
 function getWeather(event) {
     event.preventDefault();
-
+    console.log(event);
     const inputValue = event.currentTarget.elements.city.value;
     console.dir(inputValue);
-    const btnShowWeather = event.currentTarget.elements.weather;
-    console.log(btnShowWeather);
-    const btnGetLocation = event.currentTarget.elements.location;
+    // const btnShowWeather = event.currentTarget.elements.weather;
+    
+    // const btnGetLocation = event.currentTarget.elements.location;
+    // console.log({btnGetLocation, btnShowWeather})
 
-    if (btnShowWeather && inputValue !== "") {
+    if (event.submitter.id === "weather" && inputValue !== "") {
         
         fetchWeather(inputValue).then(data => createdMarkup(data)).catch(error=> console.log(error))
     }
 
-    if (btnGetLocation && inputValue === "") {
+    if (event.submitter.id === "location" && inputValue === "") {
         
         
         fetchCurrentLocationWeather().then(data => createdMarkup(data)).catch(error => console.log(error));
@@ -48,26 +52,31 @@ async function fetchWeather(city) {
 }
 
 async function fetchCurrentLocationWeather() {
-    getLocation();
+   await getLocation();
     const parsedLocationFromLocalStorage = JSON.parse(localStorage.getItem(POSITION_KAY))
     console.log(parsedLocationFromLocalStorage)
     
     const response = await fetch(`${BASE_URL}lat=${parsedLocationFromLocalStorage.lat}&lon=${parsedLocationFromLocalStorage.long}&units=metric&appid=${KEY_API}`);
     const weather = await response.json();
     return weather;
+
 }
 
-function getLocation() {
+const getLocation = () => new Promise((resolve) => {
     navigator.geolocation.getCurrentPosition((position) => {
         const location = {};
         location.lat = position.coords.latitude;
         location.long = position.coords.longitude;
 
         localStorage.setItem(POSITION_KAY, JSON.stringify(location));
-       
-    })
+        resolve()
+    }) 
+}) 
     
-}
+   
+
+    
+
 
 
 function createdMarkup(data) {
