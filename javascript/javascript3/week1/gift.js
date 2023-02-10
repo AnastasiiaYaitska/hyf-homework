@@ -9,39 +9,42 @@ const refs = {
 const BASE_URL = 'https://api.giphy.com/v1/gifs/search';
 const KEY_API = 'k0YTgIYR0p3SUZavHPeyHGEccU55XpCN';
 
+
+// I tried to implement infinity  scroll but got confused.This is not specified in the task , I will return to this a little later.
+
 // infinity scroll variable start
-let page = 1;
+// let page = 1;
 
-const options = {
-    root: null,
-    rootMargin: '300px',
-    threshold: 0
-}
+// const options = {
+//     root: null,
+//     rootMargin: '300px',
+//     threshold: 0
+// }
 
 
-function onLoad(entries, observer) {
-    console.log(entries)
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            page += 1;
-            fetchGiftInfinity(searchingWord, page).then(data => {
+// function onLoad(entries, observer) {
+//     console.log(entries)
+//     entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//             page += 1;
+//             fetchGiftInfinity(searchingWord, page).then(data => {
                  
-                renderMarkup(data.data)
-            })
-        }    
-    } )  
-}
+//                 renderMarkup(data.data)
+//             })
+//         }    
+//     } )  
+// }
              
 
 
 
 
+// window.addEventListener("load", (event) => {
+//     let observer = new IntersectionObserver(onLoad, options);
+//     console.log(observer)
+//     observer.observe(refs.guard)
+// }, false);
 // end
-window.addEventListener("load", (event) => {
-    let observer = new IntersectionObserver(onLoad, options);
-   console.log(observer)
-observer.observe(refs.guard)
-}, false);
 
 
 
@@ -50,16 +53,16 @@ refs.form.addEventListener('submit', onSubmitForm)
 function onSubmitForm(event) {
     event.preventDefault();
     const searchingWord = event.currentTarget.elements.name.value;
-    console.log(typeof searchingWord);
+    console.log( searchingWord);
     const searchingAmount = event.currentTarget.elements.amount.value;
-    console.log(typeof searchingAmount);
+    console.log( searchingAmount);
 
    
 
-    if (searchingAmount) {
+    // if (searchingAmount !== "") {
       return  fetchGift(searchingWord, searchingAmount).then(data => 
             renderMarkup(data.data)).catch(error => console.log(error))
-    }
+    // }
 
         
 }
