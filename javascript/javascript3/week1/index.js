@@ -1,4 +1,6 @@
 // Weather app
+// For testing weather your location you should allow location in the browser 
+// 
 
 const refs = {
     form: document.querySelector('.form'),
@@ -14,9 +16,6 @@ const POSITION_KAY = 'geolocation';
 
 refs.form.addEventListener('submit', getWeather);
 
-// refs.btnWeather.addEventListener('click', )
-
-
 
 
 function getWeather(event) {
@@ -24,19 +23,16 @@ function getWeather(event) {
     console.log(event);
     const inputValue = event.currentTarget.elements.city.value;
     console.dir(inputValue);
-    // const btnShowWeather = event.currentTarget.elements.weather;
-    
-    // const btnGetLocation = event.currentTarget.elements.location;
-    // console.log({btnGetLocation, btnShowWeather})
 
     if (event.submitter.id === "weather" && inputValue !== "") {
         
+        refs.btnLocation.disabled = true;
         fetchWeather(inputValue).then(data => createdMarkup(data)).catch(error=> console.log(error))
     }
 
     if (event.submitter.id === "location" && inputValue === "") {
         
-        
+        refs.btnLocation.disabled = false;
         fetchCurrentLocationWeather().then(data => createdMarkup(data)).catch(error => console.log(error));
     }
 }
@@ -52,6 +48,7 @@ async function fetchWeather(city) {
 }
 
 async function fetchCurrentLocationWeather() {
+console.log('i am in fetch')
    await getLocation();
     const parsedLocationFromLocalStorage = JSON.parse(localStorage.getItem(POSITION_KAY))
     console.log(parsedLocationFromLocalStorage)
@@ -63,6 +60,7 @@ async function fetchCurrentLocationWeather() {
 }
 
 const getLocation = () => new Promise((resolve) => {
+    
     navigator.geolocation.getCurrentPosition((position) => {
         const location = {};
         location.lat = position.coords.latitude;
@@ -101,6 +99,11 @@ function createdMarkup(data) {
     refs.weatherCardUl.innerHTML = markup;
 }
 
+
+
+
+// This function convert incorrect. Younes promised to help with this.
+
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
@@ -108,8 +111,7 @@ function convertMs(ms) {
   const hour = minute * 60;
   const day = hour * 24;
 
-  // Remaining days
-//   const days = Math.floor(ms / day);
+
   // Remaining hours
   const hours = Math.floor((ms % day) / hour);
   // Remaining minutes
