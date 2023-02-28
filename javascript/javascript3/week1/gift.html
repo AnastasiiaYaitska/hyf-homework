@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./gift.css" />
+  </head>
+  <body>
+    <section>
+      <form action="" class="form">
+        <h1>Giphy searching</h1>
+        <label for="">
+          <input
+            type="text"
+            name="name"
+            id=""
+            placeholder="Search for gif"
+            required
+          />
+        </label>
+        <button class="btn-search" name="search" type="submit">
+          Search for gif
+        </button>
+        <label for="">
+          <input
+            type="number"
+            name="amount"
+            placeholder="Number of gifs"
+            min="0"
+            required
+          />
+        </label>
+      </form>
+      <ul class="gifts-list"></ul>
+      <div class="js-guard"></div>
+    </section>
+
+    <script src="./gift.js"></script>
+  </body>
+</html>
