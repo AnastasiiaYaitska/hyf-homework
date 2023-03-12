@@ -1,0 +1,124 @@
+const database = 'Meal_Shering';
+// const collection1 = 'Meal';
+// const Reservation = 'Reservation';
+// const Review = 'Review';
+
+use(database);
+// db.createCollection(collection1);
+// db.createCollection(Reservation);
+// db.createCollection(Review);
+
+// db.Meal.insertMany([
+//   {'title':'Buffalo cauliflower wings',
+//   'description': 'Make "buffalo cauliflower" for a veggie take on the spicy American classic. Served with a ranch dip, it makes an excellent Friday night sharing treat',
+//   'when':'01-03-23',
+//   'max_reservations':'4',
+//   'price':'250',
+//   'created_date':'01-03-23'
+//   },
+//     {'title':'Beef & chorizo empanadas',
+//   'description': 'Think of these beef and chorizo empanadas as a kind of South American pasty. They can be baked or fried and are tasty served with guacamole and sour cream',
+//   'when':'08-03-23',
+//   'max_reservations':'6',
+//   'price':'350',
+//   'created_date':'01-03-23'
+//   },
+//     {'title':'Whisky & nut baked camembert',
+//   'description': 'Make this gooey baked cheese even more indulgent with the help of whisky, maple syrup and nuts. Serve with toasted sourdough for a fabulous sharing starter',
+//   'when':'10-03-23',
+//   'max_reservations':'2',
+//   'price':'150',
+//   'created_date':'01-03-23'
+//   },
+//     {'title':'Cheese & pesto whirls',
+//   'description': 'These herby tear-and-share bread rolls have mozzarella and sun-dried tomatoes baked into them - perfect for a picnic or for dipping into soup',
+//   'when':'20-03-23',
+//   'max_reservations':'4',
+//   'price':'250',
+//   'created_date':'01-03-23'
+//   }
+// ]);
+
+
+
+use(database);
+
+// db.Reservation.insertMany([{
+//        'Number_of_guests':4,
+//        'Meal_id':1,
+//        'Created_date':'2023-03-01',
+//        'Contact_phonenumber':'+45 50 20 20 20',
+//        'Contact_name':'Lili',
+//        'Contact_email':'lili.ros@gmai.com'
+//        },
+//         {'Number_of_guests':2,
+//         'Meal_id':2,
+//         'Created_date':'2023-03-01',
+//         'Contact_phonenumber':'+45 50 28 28 88',
+//         'Contact_name':'Bjørn',
+//         'Contact_email':'bjørn.b@gmai.com'
+//         },
+//         {'Number_of_guests': 6,
+//         'Meal_id':3,
+//         'Created_date':'2023-03-01',
+//         'Contact_phonenumber':'+45 50 10 10 88',
+//         'Contact_name':'Sara',
+//         'Contact_email':'sara.s@gmai.com'
+//         },
+//         {'Number_of_guests': 4,
+//         'Meal_id':1,
+//         'Created_date':'2023-03-12',
+//         'Contact_phonenumber':'+45 55 16 12 88',
+//         'Contact_name':'Maja',
+//         'Contact_email':'maja.m@gmai.com'
+//         }]);
+
+
+
+//  db.Review.insertMany([{   'Title':'Amazibg recipie',
+//         'Description':'Really good.It was ready after 20 minutes.Delcae in taste and fragrant.',
+//         'Meal_id':4,
+//         'Stars':5,
+//         'Created_date':'2023-03-20'
+//         },
+//         {   'Title':'Really excellent.',
+//         'Description': 'This is an amazingly effective, stunning &amp; delicious dish that makes a statement on your entertaining table. It’s absolutely delicious &amp.',
+//         'Meal_id':3,
+//         'Stars':5,
+//         'Created_date':'2023-03-20'
+//         },
+//         {   'Title':'Wowzee !!!',
+//         'Description':'Wowzee! This was super tasty. It was lovely with the ranch dip. ',
+//         'Meal_id':1,
+//         'Stars':4,
+//         'Created_date':'2023-03-15'
+//         }]);
+
+db.Meal.find();
+// db.Reservation.find();
+// db.Review.find();
+
+// db.Meal.find( {price:'250' } );
+// db.Reservation.find({Number_of_guests: 4});
+// db.Review.find({Stars:4});
+
+
+// ????
+// db.Reservation.find({
+//     "_id": {
+//       "$oid": "640d99bd612e09a41daa579e"
+//    } })  
+// ???????
+
+
+
+// db.Meal.updateOne({_id: 1}, {$set: {date: new ISODate("2022-05-18T14:10:30.000Z")}});
+// db.Reservation.updateOne({_id: 1}, {$inc: {Number_of_guests: 1}});
+// db.Review.updateOne({_id: 2}, {$inc: {stars: -1}});
+
+
+
+// db.Meal.updateOne(
+//    {"when": "01-03-23"},
+//    { $set: {  "when": "01-03-12"}}
+// );
