@@ -12,28 +12,36 @@ const KEY_API = 'k0YTgIYR0p3SUZavHPeyHGEccU55XpCN';
 
 // I tried to implement infinity  scroll but got confused.This is not specified in the task , I will return to this a little later.
 
+let searchingWord = "";
+let searchingAmount = "";
 // infinity scroll variable start
-// let page = 1;
+let page = 1;
 
-// const options = {
-//     root: null,
-//     rootMargin: '300px',
-//     threshold: 0
-// }
+const options = {
+    root: null,
+    rootMargin: '300px',
+    threshold: 0
+}
 
+    let observer = new IntersectionObserver(onLoad, options);
 
-// function onLoad(entries, observer) {
-//     console.log(entries)
-//     entries.forEach((entry) => {
-//         if (entry.isIntersecting) {
-//             page += 1;
-//             fetchGiftInfinity(searchingWord, page).then(data => {
+function onLoad(entries, observer) {
+    console.log(entries)
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            console.log('hi')
+            page += 1;
+            fetchGiftInfinity(searchingWord, page).then(data => {
                  
-//                 renderMarkup(data.data)
-//             })
-//         }    
-//     } )  
-// }
+                renderMarkup(data.data)
+                if (page === data. offset) {
+                    console.log('img is finish')
+                     observer.unobserve(refs.guard)
+                }
+            }).catch(error=>console.log(error))
+        }    
+    } )  
+}
              
 
 
@@ -52,20 +60,26 @@ refs.form.addEventListener('submit', onSubmitForm)
 
 function onSubmitForm(event) {
     event.preventDefault();
-    const searchingWord = event.currentTarget.elements.name.value;
+   searchingWord = event.currentTarget.elements.name.value;
     console.log( searchingWord);
-    const searchingAmount = event.currentTarget.elements.amount.value;
-    console.log( searchingAmount);
+   searchingAmount = event.currentTarget.elements.amount.value;
+    console.log(typeof searchingAmount);
 
    
 
-    // if (searchingAmount !== "") {
-      return  fetchGift(searchingWord, searchingAmount).then(data => 
-            renderMarkup(data.data)).catch(error => console.log(error))
-    // }
+    if (searchingAmount === "") {
+      console.log(' am in conditions')
+     return   fetchGiftInfinity(searchingWord, page).then(data=> {renderMarkup(data.data)
+            observer.observe(refs.guard)
+        }).catch(error => console.log(error))
+    }
 
-        
+    return  fetchGift(searchingWord, searchingAmount).then(data => 
+            renderMarkup(data.data)).catch(error => console.log(error))
 }
+
+
+
 
 async function fetchGift(searchingName, limit) {
     
@@ -76,23 +90,30 @@ async function fetchGift(searchingName, limit) {
     return gifts;   
 }
 
+
+
 async function fetchGiftInfinity(searchingName, page) {
-     
+     console.log('i an in infinity fetch')
     const response = await fetch(`${BASE_URL}?api_key=${KEY_API}&q=${searchingName}&offset=${page}&count=50`);
     const gifts = await response.json()
+    console.log(gifts)
     return gifts;
 }
 
+
+
+
 function renderMarkup(data) {
     console.log(data)
-    const markup = data.map(({ title, images:{downsized_medium:{ url}
-    } }) => 
-    `<li class="gifrs-item">
+    const markup = data.map(({ title, images: { downsized_medium: { url }
+    } }) =>
+        `<li class="gifrs-item">
     <img src="${url}" alt="${title}">
     </li>`
     ).join("");
+    console.log(searchingAmount)
     
-    return refs.giftList.innerHTML = markup;
+    return setTimeout(() => searchingAmount === "" ? refs.giftList.insertAdjacentHTML('beforeend', markup) : refs.giftList.innerHTML = markup,2000);
 }
 
 
