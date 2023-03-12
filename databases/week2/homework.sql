@@ -29,7 +29,7 @@ CREATE TABLE
     );
 
 ALTER TABLE
-    Class Modify column Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT;
+    Class MODIFY COLUMN Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT;
 
 -- Create an index on the name column of the student table.
 
