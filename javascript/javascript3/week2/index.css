@@ -16,7 +16,7 @@ p {
 
 body {
   background-color: darksalmon;
-  background-image: url(./img/Chicawoof!\ -\ Dox\ Design\ -\ Our\ Clients.jpeg);
+  background-image: url("./img/Chicawoof!\ -\ Dox\ Design\ -\ Our\ Clients.jpeg");
   background-size: cover;
 }
 
