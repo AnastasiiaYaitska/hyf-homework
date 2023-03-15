@@ -1,9 +1,9 @@
-const database = 'Meal_Shering';
+// const database = 'Meal_Shering';
 // const collection1 = 'Meal';
 // const Reservation = 'Reservation';
 // const Review = 'Review';
 
-use(database);
+// use(database);
 // db.createCollection(collection1);
 // db.createCollection(Reservation);
 // db.createCollection(Review);
@@ -41,7 +41,7 @@ use(database);
 
 
 
-use(database);
+// use(database);
 
 // db.Reservation.insertMany([{
 //        'Number_of_guests':4,
@@ -94,7 +94,7 @@ use(database);
 //         'Created_date':'2023-03-15'
 //         }]);
 
-db.Meal.find();
+// db.Meal.find();
 // db.Reservation.find();
 // db.Review.find();
 
@@ -103,22 +103,14 @@ db.Meal.find();
 // db.Review.find({Stars:4});
 
 
-// ????
-// db.Reservation.find({
-//     "_id": {
-//       "$oid": "640d99bd612e09a41daa579e"
-//    } })  
-// ???????
-
-
-
 // db.Meal.updateOne({_id: 1}, {$set: {date: new ISODate("2022-05-18T14:10:30.000Z")}});
 // db.Reservation.updateOne({_id: 1}, {$inc: {Number_of_guests: 1}});
 // db.Review.updateOne({_id: 2}, {$inc: {stars: -1}});
 
 
 
-// db.Meal.updateOne(
-//    {"when": "01-03-23"},
-//    { $set: {  "when": "01-03-12"}}
-// );
+
+db.Meal.updateOne(
+   {"when": "01-03-23"},
+   { $set: {  "when": "01-03-12"}}
+);

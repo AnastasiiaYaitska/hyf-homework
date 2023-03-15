@@ -12,6 +12,8 @@ SELECT * FROM `Meal` WHERE `Title` LIKE '%Beef%';
 
 -- Get meals that has been created between two dates
 
+USE Meal_Sharing ;
+
 SELECT *
 FROM `Meal`
 WHERE
@@ -39,4 +41,10 @@ ORDER BY
 
 --  Sort all meals by average number of stars in the reviews
 
--- ???
+SELECT
+    `Meal`.`Title`,
+    `Review`.`Title`,
+    `Review`.`Stars`
+FROM `Meal`
+    JOIN `Review` ON `Meal`.`Id` = `Review`.`Meal_id`
+ORDER BY `Stars`;
