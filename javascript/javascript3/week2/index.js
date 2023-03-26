@@ -11,12 +11,16 @@ refs.outputAmount.disabled = true;
 refs.form.addEventListener("submit", onSubmitCurrencyConvert);
 
 async function fetchCurrency(convertFrom, convertTo, amount) {
-  const response = await fetch(
-    `${BASE_API}${KEY_API}pair/${convertFrom}/${convertTo}/${amount}`
-  );
-  const data = await response.json();
-  console.log(data);
-  return data;
+  try {
+    const response = await fetch(
+      `${BASE_API}${KEY_API}pair/${convertFrom}/${convertTo}/${amount}`
+    );
+    const data = await response.json();
+    const result = await data.conversion_result;
+    return (refs.outputAmount.value = result);
+  } catch (error) {
+    console.log(error.error, log);
+  }
 }
 
 function onSubmitCurrencyConvert(event) {
@@ -27,9 +31,7 @@ function onSubmitCurrencyConvert(event) {
 
   refs.outputAmount.disabled = false;
 
-  fetchCurrency(fromCurrency, toCurrency, inputAmount)
-    .then((data) => (refs.outputAmount.value = data.conversion_result))
-    .catch((error) => console.log(error.error - type));
+  fetchCurrency(fromCurrency, toCurrency, inputAmount);
 
   if (event.currentTarget.elements.reset) {
     refs.outputAmount.disabled = true;
