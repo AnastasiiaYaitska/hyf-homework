@@ -1,12 +1,13 @@
-import ToDoItem from "./ToDoItem";
+import React from "react";
+import ToDoItem from "../ToDoItem/ToDoItem";
 
 const ToDoList = ({ toDos }) => {
   return (
-    <ul>
+    <ol>
       {toDos.map((todo) => (
         <ToDoItem todo={todo} key={todo.id} />
       ))}
-    </ul>
+    </ol>
   );
 };
 

@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { useState } from "react";
 import toDoList from "./assets/toDoList.json";
-import ToDoList from "./components/ToDoList";
+import ToDoList from "./components/ToDoList/ToDoList";
 import "./App.css";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Todo List </h1>
       <ToDoList toDos={toDos} />
     </div>
   );
