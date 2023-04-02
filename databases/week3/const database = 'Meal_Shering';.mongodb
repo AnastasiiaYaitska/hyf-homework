@@ -1,9 +1,11 @@
-// const database = 'Meal_Shering';
+const database = 'Meal_Shering';
 // const collection1 = 'Meal';
 // const Reservation = 'Reservation';
 // const Review = 'Review';
 
-// use(database);
+use(database);
+db.Reservation.find();
+
 // db.createCollection(collection1);
 // db.createCollection(Reservation);
 // db.createCollection(Review);
@@ -103,14 +105,15 @@
 // db.Review.find({Stars:4});
 
 
-// db.Meal.updateOne({_id: 1}, {$set: {date: new ISODate("2022-05-18T14:10:30.000Z")}});
-// db.Reservation.updateOne({_id: 1}, {$inc: {Number_of_guests: 1}});
-// db.Review.updateOne({_id: 2}, {$inc: {stars: -1}});
 
+// db.Review.updateOne(
+//    {"_id": new ObjectId("640d9ada1af4c4aae06e9136")
+//    },
+//     { $set: {  "Title": "Goooooood!"}}
+//  );
+// db.Meal.updateOne(  {"_id": new ObjectId("64049c07e0ebfb68ab12b46b")
+//    }, {$set: {date: new ISODate("2022-05-18T14:10:30.000Z")}});
 
-
-
-db.Meal.updateOne(
-   {"when": "01-03-23"},
-   { $set: {  "when": "01-03-12"}}
-);
+//db.Meal.deleteOne( { "_id" : ObjectId("63ffa152ffa5ac01e8e04bfa") } ); 
+// db.Review.deleteOne( { "_id" : ObjectId("640d9ada1af4c4aae06e9136") } );  
+// db.Reservation.deleteOne( { "_id" : ObjectId("640d99bd612e09a41daa57a1") } );  
