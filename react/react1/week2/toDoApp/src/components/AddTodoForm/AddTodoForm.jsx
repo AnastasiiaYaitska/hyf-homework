@@ -10,7 +10,7 @@ const AddTodoForm = ({ formSubmit }) => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="add">Add you new todo</label>
+      <label htmlFor="add">Add you new task</label>
       <textarea
         name=""
         id="add"
@@ -19,7 +19,7 @@ const AddTodoForm = ({ formSubmit }) => {
         value={newTask}
         onChange={(e) => setNewTask(e.target.value)}
       ></textarea>
-      <button type="submit">Add todo</button>
+      <button type="submit">Add task</button>
     </form>
   );
 };

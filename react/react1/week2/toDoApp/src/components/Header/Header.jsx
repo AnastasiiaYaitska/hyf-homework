@@ -12,7 +12,9 @@ const Header = ({ title }) => {
   return (
     <header>
       <h1>{title}</h1>
-      <p>You have used {seconds} seconds on this website </p>
+      <p>
+        You have used {seconds} seconds on this <br /> website{" "}
+      </p>
     </header>
   );
 };
