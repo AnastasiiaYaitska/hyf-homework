@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Currency calculator</h1>
+        <form class="form">
+          <div class="convert-from">
+            <h2>Convert from:</h2>
+            <label>
+              <input type="number" class="amount" min="0" name="amount" />
+            </label>
+            <label>
+              <select class="from-currency" name="fromCurrency">
+                <option value="EUR">Euro</option>
+                <option value="USD">US Dollar</option>
+                <option value="GBP">British Pound</option>
+                <option value="CAD">Canadian Dollar</option>
+                <option value="AUD">Australian Dollar</option>
+                <option value="CHF">Swiss Franc</option>
+                <option value="DKK">Danish Krone</option>
+                <option value="CNY">Chinese Yuan Renminbi</option>
+                <option value="UAH">Ukraine Hryvnia</option>
+                <option value="JPY">Japanese Yen</option>
+              </select>
+            </label>
+          </div>
+          <div class="convert-to">
+            <h2>Convert to:</h2>
+            <label for="">
+              <input type="number" class="amount" name="output" />
+            </label>
+            <label for="">
+              <select name="toCurrency">
+                <option value="DKK">Danish Krone</option>
+                <option value="EUR">Euro</option>
+                <option value="USD">US Dollar</option>
+                <option value="GBP">British Pound</option>
+                <option value="CAD">Canadian Dollar</option>
+                <option value="AUD">Australian Dollar</option>
+                <option value="CHF">Swiss Franc</option>
+                <option value="CNY">Chinese Yuan Renminbi</option>
+                <option value="UAH">Ukraine Hryvnia</option>
+                <option value="JPY">Japanese Yen</option>
+              </select>
+            </label>
+          </div>
+          <button class="convertBtn" type="submit">Convert</button>
+          <button class="reset" type="reset" name="reset">Reset</button>
+        </form>
+      </div>
+    </section>
+    <script src="./index.js"></script>
+  </body>
+</html>
