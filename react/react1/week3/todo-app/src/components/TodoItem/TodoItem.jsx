@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import WrapperTodo from "../WrapperTodo/WrapperTodo";
 
 const TodoItem = ({ todo, handlerDelete, updateTodo }) => {
   const { id, description, deadline } = todo;
@@ -26,46 +27,48 @@ const TodoItem = ({ todo, handlerDelete, updateTodo }) => {
   };
 
   return (
-    <li>
-      <div className="todo-description-wrapper">
-        {isUpdate ? (
-          <input
-            type="text"
-            value={updatedTodo}
-            onChange={(e) => {
-              setUpdatedTodo(e.target.value);
-            }}
-          />
-        ) : (
-          <p className={isCheck ? "done" : "undone"}>{description}</p>
-        )}
-        <p className={isCheck ? "done" : "undone"}>{deadline}</p>
-        <input type="checkbox" onChange={handleChange} />
-      </div>
+    <WrapperTodo>
+      <>
+        <div className="todo-description-wrapper">
+          {isUpdate ? (
+            <input
+              type="text"
+              value={updatedTodo}
+              onChange={(e) => {
+                setUpdatedTodo(e.target.value);
+              }}
+            />
+          ) : (
+            <p className={isCheck ? "done" : "undone"}>{description}</p>
+          )}
+          <p className={isCheck ? "done" : "undone"}>{deadline}</p>
+          <input type="checkbox" onChange={handleChange} />
+        </div>
 
-      <div className="btn-wrapper">
-        <button
-          type="button"
-          className="btn-delete"
-          onClick={() => handlerDelete(id)}
-        >
-          Delete task
-        </button>
-        {!isUpdate ? (
+        <div className="btn-wrapper">
           <button
             type="button"
-            className="btn-update"
-            onClick={() => handlerIsUpdate()}
+            className="btn-delete"
+            onClick={() => handlerDelete(id)}
           >
-            Edit
+            Delete task
           </button>
-        ) : (
-          <button type="button" onClick={() => handlerUpdate()}>
-            Update
-          </button>
-        )}
-      </div>
-    </li>
+          {!isUpdate ? (
+            <button
+              type="button"
+              className="btn-update"
+              onClick={() => handlerIsUpdate()}
+            >
+              Edit
+            </button>
+          ) : (
+            <button type="button" onClick={() => handlerUpdate()}>
+              Update
+            </button>
+          )}
+        </div>
+      </>
+    </WrapperTodo>
   );
 };
 

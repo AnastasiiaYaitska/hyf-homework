@@ -92,10 +92,16 @@ li {
   width: 800px;
   gap: 10px;
   margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .btn-wrapper {
+  display: flex;
+  align-items: flex-end;
 }
+
 .todo-description-wrapper {
   display: flex;
   gap: 15px;
