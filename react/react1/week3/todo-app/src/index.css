@@ -27,7 +27,8 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  width: 100%;
+  /* min-width: 320px; */
   min-height: 100vh;
 }
 
@@ -39,6 +40,7 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
+  width: 150px;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -48,7 +50,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #28282c;
 }
 button:focus,
 button:focus-visible {
@@ -66,6 +68,61 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.btn-delete {
+  background-color: rgb(222, 138, 138);
+  margin-right: 10px;
+}
+
+.btn-update {
+  background-color: rgb(113, 173, 113);
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 800px;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-wrapper {
+}
+.todo-description-wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 25rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 15px;
+  margin-bottom: 15px;
+  width: 450px;
+}
+
+.data-picker {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.data-picker-label {
+  margin-left: 0px;
+  margin-right: 10px;
 }
 
 .done {

@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { fetchData } from "./Utils";
+import Container from "./components/Container/Container";
 import FormTodoList from "./components/FormTodoList/FormTodoList";
 import Header from "./components/Header/Header";
 import TodoList from "./components/TodoList/TodoList";
@@ -21,6 +20,8 @@ function App() {
     };
     fetch();
   }, []);
+
+  console.log(todos);
 
   const formSubmit = (todo) => {
     setTodos((prevTodos) => {
@@ -47,7 +48,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <Container>
       <Header title="Todo list" />
       <FormTodoList formSubmit={formSubmit} />
       <TodoList
@@ -55,7 +56,10 @@ function App() {
         todos={todos}
         updateTodo={handlerUpdate}
       />
-    </div>
+    </Container>
+    // <div className="App">
+
+    // </div>
   );
 }
 

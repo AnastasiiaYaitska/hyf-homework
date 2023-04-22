@@ -19,7 +19,7 @@ const FormTodoList = ({ formSubmit }) => {
     const newTask = {
       description,
       deadline: chooseDay,
-      id: +nanoid(),
+      id: nanoid(),
     };
     formSubmit(newTask);
     setDescription("");
@@ -27,25 +27,28 @@ const FormTodoList = ({ formSubmit }) => {
   };
 
   return (
-    <form onSubmit={handlerFormSubmit}>
+    <form onSubmit={handlerFormSubmit} className="form">
       <label htmlFor="text">Todo description </label>
-      <input
-        type="text"
+      <textarea
+        type="textaria"
         id="text"
+        cols={50}
+        rows={5}
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         required
       />
-      <label>Deadline </label>
-      <DatePicker
-        selected={deadline}
-        minDate={new Date()}
-        placeholderText="Select a date "
-        onChange={(date) => {
-          setDeadline(date);
-        }}
-      />
-
+      <div className="data-picker">
+        <label className="data-picker-label">Deadline </label>
+        <DatePicker
+          selected={deadline}
+          minDate={new Date()}
+          placeholderText="Select a date "
+          onChange={(date) => {
+            setDeadline(date);
+          }}
+        />
+      </div>
       <button type="submit">Add todo</button>
     </form>
   );
