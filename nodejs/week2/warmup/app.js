@@ -17,23 +17,23 @@ app.get("/", (req, res) => {
 
 // GET /search
 app.get("/search", (req, res) => {
-  const q = req.query.q;
+  const q = req.query.toLowerCase();
 
   try {
     if (q) {
-      const filteredDoc = documents.filter((doc) => {
+      const filteredDocuments = documents.filter((doc) => {
         const values = Object.values(doc);
         return values.some(
           (value) =>
             typeof value === "string" &&
-            value.toLocaleLowerCase().includes(q.toLocaleLowerCase())
+            value.toLowerCase().includes(q.toLowerCase())
         );
       });
 
-      if (filteredDoc) {
-        res.send(filteredDoc);
+      if (filteredDocuments) {
+        res.send(filteredDocuments);
       } else {
-        res.status(404).send("Document not found");
+        res.status(404).send("Your files is not found");
       }
     } else {
       res.send(documents);
@@ -63,21 +63,17 @@ app.post("/search", (req, res) => {
     const q = req.query.q;
     const fields = req.body.fields;
 
-    if (q && fields) {
-      res.status(400).send("Query parameter and data can't be provided");
-    } else if (fields) {
-      const document = documents.filter((doc) => {
-        const docKeyValue = Object.entries(doc);
-        return docKeyValue.some(([key, value]) => {
-          return doc[key] === fields[key] && doc[value] === fields[value];
-        });
+    if (fields) {
+      const documents = documents.filter((doc) => {
+        for (const [key, value] of Object.entries(fields)) {
+          if (doc[key] != value) {
+            return false;
+          }
+        }
+        return true;
       });
 
-      if (document) {
-        res.send(document);
-      } else {
-        res.send("Document not found");
-      }
+      return res.json(documents);
     } else {
       res.send("No search query provided");
     }
