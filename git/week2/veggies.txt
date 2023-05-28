@@ -1,5 +1,5 @@
 tomato
 cucumber
-potato
+cabbage
 pepper 
 onion
