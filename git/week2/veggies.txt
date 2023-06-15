@@ -3,3 +3,5 @@ cucumber
 cabbage
 pepper 
 onion
+squash
+carrot
